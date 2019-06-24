@@ -1,3 +1,4 @@
+# coding: utf-8
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -69,7 +70,7 @@ class SQLNet(nn.Module):
                 temp_ret_seq = []
                 if item[0]:
                     temp_ret_seq.append(0)
-                    temp_ret_seq.extend(list(range(temp_q.index(item[1])+1,temp_q.index(item[1])+len(item[1])+1)))
+                    temp_ret_seq.extend(list(range(temp_q.index(item[1])+1,temp_q.index(item[1])+len(item[1])+1))) # 可能存在问题
                     temp_ret_seq.append(len(cur_q)-1)
                 else:
                     temp_ret_seq.append([0,len(cur_q)-1])
